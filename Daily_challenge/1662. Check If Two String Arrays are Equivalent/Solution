@@ -1,0 +1,17 @@
+class Solution {
+    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+        String a = "";
+        String b = "";
+        for(String element : word1){
+            a = a + element;
+        }
+        for(String element1 : word2){
+            b = b + element1;
+        }
+        if(a.equals(b)){
+            return true;
+        }
+        else
+            return false;
+    }
+}
