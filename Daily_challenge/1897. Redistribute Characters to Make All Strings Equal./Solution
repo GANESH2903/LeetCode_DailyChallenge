@@ -1,0 +1,14 @@
+class Solution {
+    public boolean makeEqual(String[] words) {
+        String word = String.join("" , words);
+        long  count = 0;
+        for(int i = 0 ; i < word.length() ; i++){
+            int c = i;
+            count = word.chars().filter(ch -> ch == word.charAt(c)).count();
+            if(count % words.length != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
