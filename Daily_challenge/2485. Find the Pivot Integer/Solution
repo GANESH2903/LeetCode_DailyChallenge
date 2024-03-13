@@ -1,1 +1,19 @@
-
+class Solution {
+    public int pivotInteger(int n) {
+        int sum1 = 0;
+        int sum2 = 0;
+        int j = n;
+        for(int i = 1; i <= j; i++){
+            if(sum1 == sum2 && i == j){
+                return i;
+            }
+            sum1 += i;
+            if(sum1 > sum2){
+                sum2 += j;
+            j--;
+            }
+            
+        }
+        return -1;
+    }
+}
