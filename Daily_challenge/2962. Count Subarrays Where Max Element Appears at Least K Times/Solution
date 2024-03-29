@@ -1,1 +1,27 @@
-
+class Solution {
+    public long countSubarrays(int[] nums, int k) {
+        int max = 0;
+        for(int i = 0 ; i < nums.length; i++){
+            if(max < nums[i]){
+                max = nums[i];
+            }
+        }
+        long freq = 0;
+        int i = 0;
+        int j = 0;
+        long result = 0;
+        while(j < nums.length){
+            if(max == nums[j]){
+                freq++;
+            }
+            while(freq == k){
+                if(max == nums[i])
+                    freq--;
+                i++;
+            }
+            result += i;
+            j++;
+        }
+        return result;
+    }
+}
