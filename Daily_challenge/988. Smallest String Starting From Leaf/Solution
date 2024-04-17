@@ -1,1 +1,34 @@
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public String min = "zzzzzzzzzzzzzzzzzzzzzzzzz";
+    public String smallestFromLeaf(TreeNode root) {
+        if(root == null)
+            return "";
+        lexicographicallySmallest(root , "");
+        return min;
+    }
+    public void lexicographicallySmallest(TreeNode root , String curr){
+        curr = (char)(root.val + 97) + curr;
+        if(root.left == null && root.right == null){
+            if(min.compareTo(curr) >= 1)
+                min = curr;
+            return;
+        }
+        if(root.left != null) lexicographicallySmallest(root.left , curr);
+        if(root.right != null) lexicographicallySmallest(root.right , curr);
+    }
+}
