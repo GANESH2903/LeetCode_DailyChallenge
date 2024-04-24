@@ -1,1 +1,15 @@
-
+class Solution {
+    public int tribonacci(int n) {
+        int a = 0;
+        int b = 1;
+        int c = 1;
+        for(int i = 0 ; i < n ; i++){
+            int temp1 = c;
+            int temp2 = b;
+            c = c + b + a;
+            b = temp1;
+            a = temp2;
+        }
+        return a;
+    }
+}
