@@ -1,0 +1,11 @@
+class Solution {
+    public int passThePillow(int n, int time) {
+        int passes = n - 1;
+        int rounds =  time / passes;
+        int remaining_time = time % passes;
+        if(rounds % 2 == 0) {
+            return  1 + remaining_time;
+        }
+        return n - remaining_time;
+    }
+}
